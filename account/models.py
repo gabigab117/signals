@@ -45,15 +45,3 @@ class CustomUser(AbstractUser):
     
     def __str__(self):
         return self.email
-
-
-class Profile(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, verbose_name="Utilisateur")
-    is_seller = models.BooleanField(default=False, verbose_name="Vendeur")
-    
-    class Meta:
-        verbose_name = "Profil"
-        verbose_name_plural = "Profils"
-
-    def __str__(self):
-        return self.user.email
